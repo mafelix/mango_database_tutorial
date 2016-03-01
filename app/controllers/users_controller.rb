@@ -7,16 +7,19 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
-      redirect_to movies_path
+      session[:id] = @user.id
+      redirect_to movies_path, notice: "Welcome aboard, #{@user.firstname}!"
     else
       render :new
     end
   end
+
 
   protected
 
   def user_params
     params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
   end
-  
+
+
 end
