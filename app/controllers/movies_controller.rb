@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
   end
 
   def update
-    @movie = Movies.find(params[:id])
+    @movie = Movie.find(params[:id])
     
     if @movie.update_attributes(movie_params)
       redirect_to movie_path(@movie)
