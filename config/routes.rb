@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   # get 'users/new'
 
   # get 'users/create'
-
+  namespace :admin do
+    resources :users
+  end
+  
   resources :movies do 
     resources :reviews, only: [:new, :create]
   end

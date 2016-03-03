@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+#kaminari gem for implementing pagination(tables).
+gem 'kaminari'
 #rmagick
 gem 'rmagick'
 # Carrierwave gem for allowing users to upload images
