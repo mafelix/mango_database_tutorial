@@ -2,6 +2,8 @@
 
 <%= paginate @users %>
 
-<%= @users.each do |user| %><br>
-  <%= p user %>
-  <%end%> 
+<% @users.each do |user| %>
+  <h2>Full name: <%= user.firstname%>, <%= user.lastname %></h2>
+  <h4>Email: <%= user.email %> | Password: <%=p user.password_digest %></h4>
+  <hr>
+<% end %>
