@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
   end
-
+  #gets attributes from form so you don't have to get the individual attribute of the form
   def new
     @movie = Movie.new
   end
@@ -15,6 +15,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  #creates the database entry with the params from new.
   def create
     @movie = Movie.new(movie_params)
 

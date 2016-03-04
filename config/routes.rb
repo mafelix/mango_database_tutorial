@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # get 'users/new'
 
   # get 'users/create'
+  
   namespace :admin do
     resources :users
   end

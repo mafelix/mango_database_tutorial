@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'pry'
 #kaminari gem for implementing pagination(tables).
 gem 'kaminari'
 #rmagick

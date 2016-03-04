@@ -1,4 +1,5 @@
 <h1>Sign Up</h1>
+<!-- you need to have a user.new for form_for @user or the inputs in the form will not be saved -->
 <%= form_for @user do |f| %> 
 <% if @user.errors.any? %> 
 <div>
@@ -31,6 +32,7 @@
       <%= f.password_field  :password_confirmation %><br>
     </div>
     <div><%= f.submit "Submit" %></div>
+     <!-- post method to create with the params/ check bin/rake routes often to understand the http methods -->
     <%end%>
 
 

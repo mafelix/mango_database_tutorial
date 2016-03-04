@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  # main controller all other controllers inherit from this controller
   protect_from_forgery with: :exception
 
   
@@ -14,10 +15,26 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  #redirects and flashes can only be used in controllers. 
+  def is_admin?
+    if !current_user || !current_user.admin
+      flash[:alert] = "You must be an admin"
+      redirect_to admin_users_path
+    end
   end
 
-  helper_method :current_user
+  def preview_method
+    if is_admin?
+      @admin_id = @current_user
+      @preview_id = nil
+    end
+  end
+
+  def current_user
+    @current_user ||= User.find(session[:id]) if session[:id]
+  end
+
+  helper_method :current_user, :preview_method
+  #helper_methods make methods avaliable to views.
 
 end
