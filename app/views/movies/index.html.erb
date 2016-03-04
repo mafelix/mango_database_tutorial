@@ -1,6 +1,13 @@
 <h1>Rotten Mangoes</h1>
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr>
+
+<%= form_tag("/movies/index", method:"get") do %>
+    <%= label_tag(:search, "Search for") %> 
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag("Search")%>
+  </p>
+<% end %>
 <% @movies.each do |movie| %>
 <%= link_to image_tag(movie.poster_image_url.thumb), movie_path(movie) %>
   <h2><%= link_to movie.title, movie_path(movie) %></h2>

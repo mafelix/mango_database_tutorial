@@ -19,22 +19,16 @@ class ApplicationController < ActionController::Base
   def is_admin?
     if !current_user || !current_user.admin
       flash[:alert] = "You must be an admin"
-      redirect_to admin_users_path
+      redirect_to movies_path
     end
   end
 
-  def preview_method
-    if is_admin?
-      @admin_id = @current_user
-      @preview_id = nil
-    end
-  end
 
   def current_user
     @current_user ||= User.find(session[:id]) if session[:id]
   end
 
-  helper_method :current_user, :preview_method
+  helper_method :current_user
   #helper_methods make methods avaliable to views.
 
 end
