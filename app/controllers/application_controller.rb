@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  #redirects and flashes can only be used in controllers. 
+#redirects and flashes can only be used in controllers. 
   def is_admin?
     if !current_user || !current_user.admin
       flash[:alert] = "You must be an admin"

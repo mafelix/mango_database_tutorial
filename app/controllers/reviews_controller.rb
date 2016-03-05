@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_filter :restrict_access
+  before_filter :restricted_access
   before_filter :load_movie
 
 
@@ -30,5 +30,6 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:text, :rating_out_of_ten)
   end
-  helper :review_params
+
+  helper_method :review_params
 end

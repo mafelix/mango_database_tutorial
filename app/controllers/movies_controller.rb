@@ -1,16 +1,20 @@
 class MoviesController < ApplicationController
-  #Movie.where("name like ?",%adm%")
   
-  def index
-    @movies = Movie.where("title like ?","%ab%")
-  end
-
   def show
     @movie = Movie.find(params[:id])
   end
   #gets attributes from form so you don't have to get the individual attribute of the form
   def new
     @movie = Movie.new
+  end
+
+  #Movie.where("name like ?",%adm%")
+  def index
+    if params[:search] == ""
+      @movies = Movie.all
+    else
+      @movies = Movie.where("title like ?", "%#{params[:search]}%")
+    end
   end
 
   def edit
@@ -47,8 +51,7 @@ class MoviesController < ApplicationController
   protected
 
   def movie_params
-    params.require(:movie).permit(
-      :title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description)
+    params.require(:movie).permit(:title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description)
   end
 
 end
