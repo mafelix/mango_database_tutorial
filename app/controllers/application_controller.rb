@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+  helper_method :is_admin?
   #helper_methods make methods avaliable to views.
 
 end
