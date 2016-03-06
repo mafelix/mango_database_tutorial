@@ -18,15 +18,14 @@ class MoviesController < ApplicationController
       # Movie.where("title LIKE ? OR director LIKE ?", "%#{params[:search]}%","%#{params[:search]}%")
 
     elsif params[:duration] == 'Under 90 minutes'
-      
       @movies = Movie.durationunder90
 
     elsif params[:duration] == 'Between 90 and 120 minutes'
-
       @movies = Movie.durationbetween
     #   where("runtime_in_minutes >= ? and runtime_in_minutes <= ?", 90, 120)
     # elsif params[:duration] == 'Over 120 minutes'
-
+    
+    elsif params[:duration] == 'Over 120 minutes'
       @movies = Movie.durationover120
     end
   end
