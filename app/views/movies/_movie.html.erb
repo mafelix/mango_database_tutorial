@@ -1,8 +1,19 @@
-<% @movies.each do |movie| %>
-<%= link_to image_tag(movie.poster_image_url.thumb), movie_path(movie) %>
-  <h2><%= link_to movie.title, movie_path(movie) %></h2>
-  <h3><%= movie.release_date %></h3>
-  <h4>Dir. <%= movie.director %> | <%= movie.runtime_in_minutes %> minutes</h4>
-  <p><%= movie.description %></p>
-  <hr>
-<% end %>
+<div class="columns is-mobile">
+  <% @movies.each do |movie| %>
+    
+    <div class="column is-3">
+      <%= link_to image_tag(movie.poster_image_url.thumb), movie_path(movie) %>
+      <h2><%= link_to movie.title, movie_path(movie) %></h2>
+      <h3><%= movie.release_date %></h3>
+      <h4>Director: <%= movie.director %> | Runtime: <%= movie.runtime_in_minutes %> minutes</h4>
+
+      <p>Description: <%= movie.description %></p>
+      <% if movie.review_average != "No reviews yet!" %> 
+        <%= movie.review_average %> by <%= movie.review_amount%> User reviewers</p>
+      <% else %>
+        <%= movie.review_average %> 
+      <% end %> 
+      <!-- <hr> -->
+    </div>
+  <% end %>
+</div>

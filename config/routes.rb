@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:new, :create, :show]
   resource :session, only: [:new, :create, :destroy]
+  
+  # servering root page
   root to: 'movies#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+# gem 'materialize-sass'
+#materialize-sass gem framework
 gem 'pry'
 #kaminari gem for implementing pagination(tables).
 gem 'kaminari'
@@ -10,8 +12,6 @@ gem 'carrierwave'
 gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-# bootstrap sass 
-gem 'bootstrap-sass'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

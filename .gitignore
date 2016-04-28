@@ -15,4 +15,5 @@
 /log/*.log
 /tmp
 
-.DS_Store
+#system MAC files
+git config --global core.excluesfile '.DS_Store'

@@ -14,12 +14,17 @@ class Movie < ActiveRecord::Base
   scope :durationunder90, -> {where("runtime_in_minutes < ?", 90)}
   scope :durationbetween, -> {where("runtime_in_minutes >= ? and runtime_in_minutes <= ?", 90, 120)}
   scope :durationover120, -> {where("runtime_in_minutes > ?", 120)}
+  
   def review_average
     if reviews.size > 0
-      reviews.sum(:rating_out_of_ten)/reviews.size
+      return reviews.sum(:rating_out_of_ten)/reviews.size
     else
-      return "No votes"
+      return "No reviews yet!"
     end
+  end
+
+  def review_amount
+    return reviews.size
   end
 
   protected
